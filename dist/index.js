@@ -1,5 +1,7 @@
 "use strict";
-// TODO: Import readline untuk membaca input dari command line
+// // import {} from './types';
+// console.log('\nWelcome to TypeScript To-Do App!');
+// console.log('Start building your app here...');
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -34,17 +36,19 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+// TODO: Import fungsi-fungsi dari todoService
+const todoService_1 = require("./todoService");
+// =============
+// INIT STORAGE
+// =============
+const storage_1 = require("./storage");
+(0, storage_1.initStorage)();
+// TODO: Import readline untuk membaca input dari command line
 const readline = __importStar(require("readline"));
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
 });
-// TODO: Import fungsi-fungsi dari todoService
-// import {} from "./todoService"
-// TODO: Import fungsi-fungsi dari utils (termasuk type guards)
-// import {} from './utils';
-// todoService();
-// utils();
 // TODO: Buat fungsi untuk menampilkan menu utama
 // Tampilkan opsi seperti:
 // 1. Add new todo
@@ -55,11 +59,11 @@ const rl = readline.createInterface({
 // 6. Exit
 function showMenu() {
     console.log('\n     === To-Do App === ');
-    console.log('1. Add new todo');
-    console.log('2. Mark todo as complete');
-    console.log('3. Delete todo');
-    console.log('4. List all todos');
-    console.log('5. Search todos');
+    console.log('1. Add new task');
+    console.log('2. Mark task as complete');
+    console.log('3. Delete task');
+    console.log('4. List all tasks');
+    console.log('5. Search tasks');
     console.log('6. Exit');
 }
 // TODO: Buat fungsi untuk handle input dari user
@@ -70,26 +74,50 @@ function main() {
     showMenu();
     rl.question('Choose Menu: ', (answer) => {
         switch (answer) {
+            // Add new todo
             case '1':
+                rl.question('Add Task: ', (text) => {
+                    (0, todoService_1.addTodo)(text);
+                    main();
+                });
                 break;
+            // mark as complete
             case '2':
+                rl.question('Enter [ID/Index Number] to Complete: ', (id) => {
+                    (0, todoService_1.completeTodo)(Number(id));
+                    main();
+                });
                 break;
+            // Delete todo
             case '3':
+                rl.question('Enter [ID/Index Number] to Delete: ', (id) => {
+                    (0, todoService_1.deleteTodo)(Number(id));
+                    main();
+                });
                 break;
+            // List all todos
             case '4':
+                console.log('\n      === Tasks List === ');
+                (0, todoService_1.listTodo)();
+                main();
                 break;
+            // Search todos
             case '5':
+                rl.question('Enter Keyword: ', (keyword) => {
+                    (0, todoService_1.searchTodo)(keyword);
+                    main();
+                });
                 break;
+            // Exit
             case '6':
-                console.log('End Program');
+                console.log('End Program!');
                 rl.close();
                 break;
             default:
                 console.log('Invalid Menu!');
+                main();
         }
     });
 }
 // TODO: Jalankan fungsi main
 main();
-console.log('\nWelcome to TypeScript To-Do App!');
-console.log('Start building your app here...');
