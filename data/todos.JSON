@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1778837925848,
+    "text": "lari-larian",
+    "completed": false,
+    "status": "active",
+    "createdAt": "2026-05-15T09:38:45.848Z"
+  },
+  {
+    "id": 1778837933159,
+    "text": "jalan jalan",
+    "completed": true,
+    "status": "done",
+    "createdAt": "2026-05-15T09:38:53.159Z"
+  },
+  {
+    "id": 1778838394130,
+    "text": "manjat langit",
+    "completed": false,
+    "status": "active",
+    "createdAt": "2026-05-15T09:46:34.130Z"
+  },
+  {
+    "id": 1778838399290,
+    "text": "loncat gunung",
+    "completed": true,
+    "status": "done",
+    "createdAt": "2026-05-15T09:46:39.290Z"
+  },
+  {
+    "id": 1778838406844,
+    "text": "belajar terbang",
+    "completed": false,
+    "status": "active",
+    "createdAt": "2026-05-15T09:46:46.844Z"
+  },
+  {
+    "id": 1778840675793,
+    "text": "test lagi",
+    "completed": false,
+    "status": "active",
+    "createdAt": "2026-05-15T10:24:35.793Z"
+  }
+]
